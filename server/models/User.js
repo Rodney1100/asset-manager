@@ -20,6 +20,7 @@ const UserSchema = new Schema({
 
   // need virtuals for post. going to look them up later
   //
+
   //
   //
   //
