@@ -1,23 +1,38 @@
 const express = require("express");
 const { ApolloServer } = require("apollo-server-express");
-const mongoose = require("mongoose");
 const path = require("path");
-const app = express();
+
+// impost typeDefs and resolvers
+const { typeDefs, resolvers } = require("./schemas");
+const db = require("./config/connection.js");
 
 const PORT = process.env.PORT || 3001;
-const Post = require("./models/Post");
+const app = express();
+
+const startServer = async () => {
+  const server = new ApolloServer({
+    typeDefs,
+    resolvers,
+    // context:authMiddleware
+  });
+
+  // Start the apollo server
+  await server.start();
+  server.applyMiddleware({ app });
+  console.log(`Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`);
+};
+
+startServer();
+
+app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(express.static("public"));
+// app.use(express.static("public"));
 
-mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://127.0.0.1/asset-manager",
-  {}
-);
+// Serve up static assets
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "../client/build")));
+}
 
-// Use this to log mongo queries being executed!
-mongoose.set("debug", true);
-
-// app.use(require("./routes"));
-
-app.listen(PORT, () => console.log(`Connected on localhost:${PORT}`));
+db.once("open", () => {
+  app.listen(PORT, () => console.log(`Connected on localhost:${PORT}`));
+});
