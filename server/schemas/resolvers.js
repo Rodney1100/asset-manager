@@ -1,8 +1,13 @@
+const { User, Post } = require("../models");
 const resolvers = {
   Query: {
-    helloWorld: () => {
-      return "we live here world";
+    User: async () => {
+      return User.find();
+    },
+    Post: async () => {
+      return Post.find().sort({ createdAt: -1 });
     },
   },
 };
-module.exports= resolvers
+
+module.exports = resolvers;

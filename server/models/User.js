@@ -1,5 +1,5 @@
 const { Schema, model } = require("mongoose");
-const UserSchema = new Schema({
+const userSchema = new Schema({
   username: {
     type: String,
     required: true,
@@ -17,12 +17,12 @@ const UserSchema = new Schema({
     required: true,
     minlength: 5,
   },
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
 
   // need virtuals for post. going to look them up later
-  //
-
-  //
-  //
   //
   //
   //
@@ -32,19 +32,13 @@ const UserSchema = new Schema({
 // set up middleware to create password
 //
 //
-//
-//
-//
-//
+
 // compare the incoming password with the hashed password
-//
-//
-//
 //
 //
 //
 
 // create the User model using the UserSchema
-const User = model("User", UserSchema);
+const User = model("User", userSchema);
 // export the User model
 module.exports = User;
