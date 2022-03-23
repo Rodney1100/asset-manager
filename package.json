@@ -19,7 +19,9 @@
   },
   "homepage": "https://github.com/Rodney1100/asset-manager#readme",
   "dependencies": {
+    "apollo-server-express": "^3.6.5",
     "express": "^4.17.3",
+    "graph": "^0.2.0",
     "mongoose": "^6.2.8"
   }
 }
