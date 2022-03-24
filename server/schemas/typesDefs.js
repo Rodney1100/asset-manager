@@ -7,6 +7,7 @@ const typeDefs = gql`
     _id: ID
     username: String
     email: String
+    password: String
     createdAt: String
   }
 
@@ -19,6 +20,12 @@ const typeDefs = gql`
     pricedAt: Int
   }
 
+  type Query {
+    User: [User]
+    Post: [Post]
+    Posts(stockName: String): [Post]
+    post(_id: ID!): Post
+  }
 `;
 
 module.exports = typeDefs;

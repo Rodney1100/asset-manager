@@ -18,7 +18,7 @@ const postSchema = new Schema({
     type: Number,
     required: true,
     minlength: 2,
-    maxlength: 6,
+    maxlength: 10,
   },
   pricedAt: {
     type: Number,
