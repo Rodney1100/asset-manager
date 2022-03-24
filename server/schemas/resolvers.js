@@ -3,8 +3,8 @@ const { User, Post } = require("../models");
 const resolvers = {
   Query: {
     // get all users
-    User: async () => {
-      return User.find().select("-__v -password");
+    users: async () => {
+      return User.find().select("-__v -password")
     },
     // get a user by username
     User: async (parent, { username }) => {
@@ -36,6 +36,21 @@ const resolvers = {
       }
       return user;
     },
+    // login: async (parent, { username, password }) => {
+    //   const user = await User.findOne({ username });
+    //   if (!user) {
+    //     throw new AuthenticationError("Incorrect Username");
+    //   }
+    //   const correctPw = await user.isCorrectPassword(password);
+    //   if (!correctPw) {
+    //     throw new AuthenticationError("Incorrect password");
+    //   }
+    //   return user;
+    // },
+    addPost:async(parent,args)=>{
+      const post = await Post.create(args)
+      return post
+    }
   },
 };
 

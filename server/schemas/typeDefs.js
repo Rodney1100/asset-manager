@@ -15,13 +15,15 @@ const typeDefs = gql`
     _id: ID
     stockName: String
     createdAt: String
-    purchaseAt: Int
-    amountBought: Int
-    pricedAt: Int
+    purchaseAt: Float
+    amountBought: Float
+    pricedAt: Float
+    username: String
   }
 
   type Query {
-    User: [User]
+    users: [User]
+    User(username: String!): User
     Post: [Post]
     Posts(stockName: String): [Post]
     post(_id: ID!): Post
@@ -29,7 +31,18 @@ const typeDefs = gql`
 
   type Mutation {
     login(email: String!, password: String!): User
-    addUser(username:String!, email:String!, password:String!):User
+    addUser(
+      username: String!, 
+      email: String!, 
+      password: String!
+      ): User
+    addPost(
+      stockName: String!
+      purchaseAt: Float!
+      amountBought: Float!
+      pricedAt: Float!
+      username: String!
+    ): Post
   }
 `;
 

@@ -26,11 +26,12 @@ const postSchema = new Schema({
     minlength: 2,
     maxlength: 6,
   },
-  user: {
+  username: {
     type: Schema.Types.ObjectId,
     ref: "user",
   },
 });
+
 // create the Post model using the PostSchema
 const Post = model("Post", postSchema);
 
