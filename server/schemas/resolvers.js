@@ -1,10 +1,20 @@
 const { AuthenticationError } = require("apollo-server-express");
 const { User, Post } = require("../models");
+const { singToken, signToken } = require("../utils/auth");
 const resolvers = {
   Query: {
+    me: async (parent, args, context) => {
+      if (context.user) {
+        const userData = await User.findOne({ _id: context.user._id })
+          .select("-__v -password")
+          .populate("Post");
+        return userData;
+      }
+      throw new AuthenticationError("Not logged in");
+    },
     // get all users
     users: async () => {
-      return User.find().select("-__v -password")
+      return User.find().select("-__v -password");
     },
     // get a user by username
     User: async (parent, { username }) => {
@@ -13,7 +23,8 @@ const resolvers = {
 
     Post: async (parent, { stockName }) => {
       const params = stockName ? { stockName } : {};
-      return Post.find(params).sort({ createdAt: -1 });
+      return Post.find(params)
+      // .sort({ createdAt: -1 });
     },
     Post: async (parent, { _id }) => {
       return Post.findOne({ _id });
@@ -23,18 +34,25 @@ const resolvers = {
   Mutation: {
     addUser: async (parent, args) => {
       const user = await User.create(args);
-      return user;
+      const token = singToken(user);
+      return { token, user };
     },
-    login: async (parent, { email, password }) => {
-      const user = await User.findOne({ email });
+    login: async (parent, { email, username, password }) => {
+      let user;
+      if (email) {
+        user = await User.findOne({ email });
+      } else {
+        user = await User.findOne({ username });
+      }
       if (!user) {
-        throw new AuthenticationError("Incorrect Username");
+        throw new AuthenticationError("Incorrect credentials");
       }
       const correctPw = await user.isCorrectPassword(password);
       if (!correctPw) {
-        throw new AuthenticationError("Incorrect password");
+        throw new AuthenticationError("Incorrect credentials");
       }
-      return user;
+      const token = signToken(user);
+      return { token, user };
     },
     // login: async (parent, { username, password }) => {
     //   const user = await User.findOne({ username });
@@ -47,10 +65,10 @@ const resolvers = {
     //   }
     //   return user;
     // },
-    addPost:async(parent,args)=>{
-      const post = await Post.create(args)
-      return post
-    }
+    addPost: async (parent, args) => {
+      const post = await Post.create(args);
+      return post;
+    },
   },
 };
 

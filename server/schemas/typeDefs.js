@@ -22,6 +22,7 @@ const typeDefs = gql`
   }
 
   type Query {
+    me: User
     users: [User]
     User(username: String!): User
     Post: [Post]
@@ -30,12 +31,8 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    login(email: String!, password: String!): User
-    addUser(
-      username: String!, 
-      email: String!, 
-      password: String!
-      ): User
+    login(email: String, username: String, password: String!): Auth
+    addUser(username: String!, email: String!, password: String!): Auth
     addPost(
       stockName: String!
       purchaseAt: Float!
@@ -43,6 +40,10 @@ const typeDefs = gql`
       pricedAt: Float!
       username: String!
     ): Post
+  }
+  type Auth {
+    token: ID
+    user: User
   }
 `;
 
