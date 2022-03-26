@@ -1,5 +1,6 @@
 const { Schema, model } = require("mongoose");
 const bcrypt = require("bcrypt");
+const Post = require("./Post");
 const userSchema = new Schema({
   username: {
     type: String,
@@ -22,10 +23,12 @@ const userSchema = new Schema({
     type: Date,
     default: Date.now,
   },
-
-  // need virtuals for post. going to look them up later
-  //
-  //
+  postByUser: [
+    {
+      type: Schema.Types.ObjectId,
+      res: "Post",
+    },
+  ],
 });
 
 // set up middleware to create password

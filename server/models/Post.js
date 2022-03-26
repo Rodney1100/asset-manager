@@ -27,9 +27,13 @@ const postSchema = new Schema({
     maxlength: 6,
   },
   username: {
-    type: Schema.Types.ObjectId,
-    ref: "user",
+    type: String,
+    required: true,
   },
+  // username: {
+  //   type: Schema.Types.ObjectId,
+  //   ref: "user",
+  // },
 });
 
 // create the Post model using the PostSchema

@@ -9,6 +9,7 @@ const typeDefs = gql`
     email: String
     password: String
     createdAt: String
+    postByUser: [Post]
   }
 
   type Post {
@@ -21,17 +22,22 @@ const typeDefs = gql`
     username: String
   }
 
+  type Auth {
+    token: ID!
+    user: User
+  }
+
   type Query {
     me: User
     users: [User]
     User(username: String!): User
-    Post: [Post]
-    Posts(stockName: String): [Post]
-    post(_id: ID!): Post
+    PostsUser(username: String): [Post]
+    Post(_id: ID!): Post
+    allPost:[Post]
   }
 
   type Mutation {
-    login(email: String, username: String, password: String!): Auth
+    login(email: String, username: String, password: String): Auth
     addUser(username: String!, email: String!, password: String!): Auth
     addPost(
       stockName: String!
@@ -40,10 +46,6 @@ const typeDefs = gql`
       pricedAt: Float!
       username: String!
     ): Post
-  }
-  type Auth {
-    token: ID
-    user: User
   }
 `;
 

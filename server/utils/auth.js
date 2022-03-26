@@ -1,6 +1,6 @@
-const { rename } = require("fs");
+// const { rename } = require("fs");
 const jwt = require("jsonwebtoken");
-const secret = "ThisIsASecret";
+const secret = "ThisSecretWillBeChanged";
 const expiration = "1h";
 
 module.exports = {
