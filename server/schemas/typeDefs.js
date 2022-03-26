@@ -16,7 +16,7 @@ const typeDefs = gql`
     _id: ID
     stockName: String
     createdAt: String
-    purchaseAt: Float
+    purchaseAt: String
     amountBought: Float
     pricedAt: Float
     username: String

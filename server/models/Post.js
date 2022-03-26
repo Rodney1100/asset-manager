@@ -1,4 +1,5 @@
 const { Schema, model } = require("mongoose");
+const dateFormat = require("../utils/dateFormat");
 const postSchema = new Schema({
   stockName: {
     type: String,
@@ -9,10 +10,12 @@ const postSchema = new Schema({
   createdAt: {
     type: Date,
     default: Date.now,
+    get: (timestamp) => dateFormat(timestamp),
   },
   purchaseAt: {
     type: Date,
     default: Date.now,
+    get: (timestamp) => dateFormat(timestamp),
   },
   amountBought: {
     type: Number,
