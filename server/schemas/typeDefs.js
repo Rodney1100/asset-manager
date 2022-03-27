@@ -33,12 +33,20 @@ const typeDefs = gql`
     User(username: String!): User
     PostsUser(username: String): [Post]
     Post(_id: ID!): Post
-    allPost:[Post]
+    allPost: [Post]
   }
 
   type Mutation {
     login(email: String, username: String, password: String): Auth
     addUser(username: String!, email: String!, password: String!): Auth
+
+    updateUsername(email:String! username: String!, password: String!): User
+
+    deleteUser(username: String!): User
+
+    updatePost(_id: ID): Post
+
+    deletePost(_id:ID): Post
     addPost(
       stockName: String!
       purchaseAt: Float!
