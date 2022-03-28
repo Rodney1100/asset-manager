@@ -4,7 +4,6 @@ const SingleUserPost = ({ singleUserPost, title }) => {
   if (!singleUserPost.length) {
     return <h3>No Post Yet...</h3>;
   }
-  const userPost = "321"
   return (
     <div>
       <h3>{title}</h3>

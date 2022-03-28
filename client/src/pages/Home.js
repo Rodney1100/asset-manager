@@ -7,8 +7,8 @@ const Home = () => {
   // const { loading, data } = useQuery(QUERY_ALLPOST);
   // const allPost = data?.allPost || [];
   // console.log(allPost);
-  const { loading, data } = useQuery(QUERY_SINGLEUSERPOST);
-  const singleUserPost = data?.singleUserPost || [];
+  const [ singleUserPost, { loading, data }  ] = useQuery(QUERY_SINGLEUSERPOST);
+  const usersPost = data?.singleUserPost || [];
   console.log(singleUserPost);
 
   return (
@@ -18,19 +18,16 @@ const Home = () => {
           <div>Loading...</div>
         ) : (
           <SingleUserPost
-            singleUserPost={singleUserPost}
+            singleUserPost={usersPost}
             title="title for all post here"
           />
-          )}
-          <br/>
-          <br/>
-          
-          <h3> or all post is here</h3> 
-        <allPost
-          allPost= {allPost}
-        title = "this is for all post"
-          />
-        <div> </div>
+        )}
+        <br />
+        <br />
+
+        <div>
+          <h3>{usersPost.username}</h3>
+        </div>
       </div>
     </main>
   );
