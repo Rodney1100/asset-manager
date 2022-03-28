@@ -1,12 +1,13 @@
 {
   "name": "asset-manager",
   "version": "1.0.0",
-  "description": "",
   "main": "server.js",
   "scripts": {
     "start": "nodemon server/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "cd client && npm run build"
+    "build": "cd client && npm run build",
+    "develop": "concurrently \"cd server && npm start\" \"cd client && npm start\"",
+    "install": "cd server && npm i && cd ../client && npm i",
+    "seed": "cd server && npm run seed"
   },
   "repository": {
     "type": "git",
@@ -26,5 +27,9 @@
     "graph": "^0.2.0",
     "graphql": "^16.3.0",
     "mongoose": "^6.2.8"
+  },
+  "description": "",
+  "devDependencies": {
+    "concurrently": "^7.0.0"
   }
 }

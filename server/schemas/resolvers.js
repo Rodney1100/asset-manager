@@ -5,7 +5,6 @@ const { signToken } = require("../utils/auth");
 const resolvers = {
   Query: {
     me: async (parent, args, context) => {
-      console.log(context);
       if (context.user) {
         const userData = await User.findOne({ _id: context.user._id });
         return userData;
@@ -27,7 +26,7 @@ const resolvers = {
       return Post.findOne(params).sort({ createdAt: -1 });
     },
     //  get  post for one user
-    PostsUser: async (parent, { username }) => {
+    singleUserPost: async (parent, { username }) => {
       return Post.find({ username }).sort({ createdAt: -1 });
     },
     // git all post posted
@@ -46,13 +45,17 @@ const resolvers = {
 
     // delete user account along with their old post.
     deleteUser: async (parent, { username }, context) => {
+      const params = username ? { username } : {};
+      const user = await User.findOne(username);
       //  if user is logged in they can delete their account
       if (context.user) {
-        const params = username ? { username } : {};
-        const user = await User.findById(username);
         console.log(user);
+      } else {
+        throw new AuthenticationError("Action not allowed");
       }
+      throw new Error(err);
     },
+
     // Edit a users email, password, or username
     // updateUsername: async (parent, { _id }) => {
     //   User.findByIdAndUpdate({ _id });
