@@ -1,45 +1,34 @@
+import React from "react";
 import { Link } from "react-router-dom";
-import { FaHouseUser,FaChartBar , FaAddressCard, FaDisease, FaNewspaper, FaFortAwesome, FaCogs,FaSignInAlt} from "react-icons/fa";
+import { FaHouseUser, FaChartBar, FaAddressCard, FaDisease, FaNewspaper, FaFortAwesome, FaCogs, FaSignInAlt } from "react-icons/fa";
+
+
 const Header = () => {
   return (
+    <main>
 
-    <div className="container">
-      {/* nav starts */}
-      <div className="side-nav">
-          <img src="./iconAssetm.png" alt="logo" className="logoo-img"/>
-        <ul className="nav-links">
-          <li><a ><FaFortAwesome /><Link to="/">Home</Link></a></li>
-          <li><a href="#"><FaChartBar/><Link to='/'>Charts</Link></a></li>
-          <li><a href="#"><FaAddressCard/><Link to="/Profile">Profile </Link></a></li>
-          <li><a href="#"><FaDisease /><Link to="/">Ideas</Link></a></li>
-          <li><a href="#"><FaNewspaper /><Link to='/'>News</Link></a></li>
-          <li><a href="#"><FaCogs /><Link to='/'>Settings</Link></a></li>
-          <li id="login-list"><a href="#"><FaSignInAlt/><Link to='/'>Login</Link></a></li>
-          <div className="active" />
-        </ul>
-      </div>
+      {/* <div className="container"> */}
+        {/* nav starts */}
+        <div className="side-nav">
+          <Link to='/'>
+            <img src="./iconAssetm.png" alt="logo" className="logoo-img" />
+          </Link>
+          <nav className="nav-links">
+            <li><Link to="/"><FaFortAwesome /> &nbsp; Home</Link></li>
+            <li><Link to="/Profile"><FaAddressCard />  &nbsp; Profile</Link></li>
+            <li><Link to='/'><FaChartBar /> &nbsp; Charts</Link></li>
+            <li><Link to='/'><FaDisease /> &nbsp; Ideas</Link></li>
+            <li><Link to='/'><FaNewspaper /> &nbsp; News</Link></li>
+            <li><Link to='/'><FaCogs /> &nbsp; Settings</Link></li>
+            <li id="login-list"><Link to='/Login'><FaSignInAlt /> &nbsp; Login</Link></li>
+            <div className="active" />
+          </nav>
+          <div>
 
-      {/* nav ends */}
-      <div className="row">
-        <div className="col">
-          <h1>Asset Tracker</h1>
-          <p>A way to track your assets and trading patterns using our simple to understand graphs, data, and charts with the information you
-            insert regarding your assets and trading ideas
-          </p>
-          <button type="button">Explore</button>
-        </div>
-        <div className="col">
-          <div className="card">
-          </div>
-          <div className="card">
-          </div>
-          <div className="card">
-          </div>
-          <div className="card">
           </div>
         </div>
-      </div>
-    </div>
+      {/* </div> */}
+    </main>
   );
 };
 export default Header;

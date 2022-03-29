@@ -27,3 +27,22 @@ export const QUERY_ALLPOST = gql`
     }
   }
 `;
+
+export const QUERY_ME= gql`
+query Query($username: String!) {
+  User(username: $username) {
+    username
+    _id
+    email
+    password
+    createdAt
+    postByUser {
+      stockName
+      createdAt
+      purchaseAt
+      amountBought
+      pricedAt
+      _id
+    }
+  }
+}`

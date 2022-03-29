@@ -1,35 +1,10 @@
-/* @import url("https://kit.fontawesome.com/dd38ca02dc.js");
-body{
-  font-family: "M";
-} */
-  /* Step 1: Common Properties: All required to make icons render reliably */
-  .icon::before {
-    display: inline-block;
-    text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  /* Step 2: Reference Individual Icons */
-  .login::before {
-    font: var(--fa-font-solid);
-    content: "\f007";
-  }
-
-  /* Note: Make sure to include the correct weight and Unicode value for the icon */
-  .tps::before {
-    font: var(--fa-font-solid);
-    content: "\f1ea";
-  }
-
-
-
-
 *{
   font-family: 'Kanit', sans-serif;
   margin:0;
   padding:0;
   box-sizing: border-box;
 }
+
 
 .header {
 width: 100%;
@@ -41,7 +16,7 @@ background: #e2e9f7;
 .side-nav {
 width:250px;
 height:100%;
-background: #52686a;
+background: #52686a59;
 position:fixed;
 top:0;
 left:0;
@@ -66,7 +41,7 @@ position:relative;
 padding: 10px 0;
 }
 
-.nav-links li a {
+.nav-links li :link{
 color: #fff;
 text-decoration: none;
 padding: 10px 14px;
@@ -75,7 +50,7 @@ align-items: center;
 }
 
 
-.nav-links li a i {
+.nav-links li :link {
 font-size:22px;
 margin-right: 20px;
 }
@@ -149,13 +124,13 @@ width:45px;
 .logoo-img {
   display: none;
 }
-.nav-links li a p{
+.nav-links li :link p{
   display:none;
 }
-.nav-links li a i{
+.nav-links li :link{
   margin-right: 0;
 }
-.nav-links li a{
+.nav-links li :link{
   justify-content: center;
 }
 }
@@ -372,7 +347,7 @@ margin-left: 10px;
 margin-top: 70px;
 }
 
-.card-signup a {
+.card-signup :link{
 color: #fff;
 text-decoration: none;
 display:block;

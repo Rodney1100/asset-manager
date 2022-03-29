@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 const SingleUserPost = ({ singleUserPost, title }) => {
   if (!singleUserPost.length) {
     return <h3>No Post Yet...</h3>;
