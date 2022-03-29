@@ -1,7 +1,7 @@
 import { useQuery } from "@apollo/client";
 import { QUERY_ALLPOST, QUERY_SINGLEUSERPOST } from "../utils/queries";
 import SingleUserPost from "../components/Postlist";
-import allPost from "../components/allPost";
+// import allPost from "../components/allPost";
 const Home = () => {
   //  use useQuery hook to make query request
   // const { loading, data } = useQuery(QUERY_ALLPOST);

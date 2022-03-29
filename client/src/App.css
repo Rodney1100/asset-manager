@@ -37,11 +37,11 @@ list-style: none;
 position:relative;
 }
 
-.nav-links li {
+.nav-links link {
 padding: 10px 0;
 }
 
-.nav-links li a {
+.nav-links link a {
 color: #fff;
 text-decoration: none;
 padding: 10px 14px;
@@ -50,9 +50,9 @@ align-items: center;
 }
 
 
-.nav-links li a i {
+.nav-links link a i {
 font-size:22px;
-margin-right: 20px;
+margin-right: 209px;
 }
 
 .active {
