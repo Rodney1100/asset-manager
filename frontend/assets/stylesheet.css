@@ -168,7 +168,7 @@ p {
   line-height: 15px;
 }
 
-button {
+.btn-reg {
   width: 180px;
   color: #000;
   font-size: 12px;
@@ -362,7 +362,7 @@ span {
   width:100%;
   height: 100vh;
   padding: 5%;
-  background-image: linear-gradient(rgba(0,8,51,0.9),rgba(0,8,51,0.9)), url(/assets/images/test-backg.png);
+  background: #314a52;
   background-position: center;
   background-size: cover;
   display: flex;
@@ -381,7 +381,7 @@ span {
   backdrop-filter: blur(4px) saturate(180%);
 }
 
-.search-bar input {
+.search-bar .input-search {
   background: transparent;
   flex:1;
   border:0;
@@ -391,24 +391,32 @@ span {
   color:#cac7ff;
 }
 
-::placeholder {
-    color:#cac7ff;
-}
 
-.search-bar button img {
+
+.search-bar #search-btn .magglass {
   width:25px;
 
 }
-.search-bar button {
+.search-bar #search-btn {
   border:0;
   border-radius:50%;
   width:60px;
   height: 60px;
-  background: #58629b;
+  background: #52686a;
   cursor: pointer;
 }
 
-input:focus {
+.input-search:focus {
+  background: transparent;
+  flex:1;
+  border:0;
+  outline:none;
+  padding:24px 20px;
+  font-size:20px;
+  color:#fff;
+}
+
+.input-search:visited {
   background: transparent;
   flex:1;
   border:0;
@@ -418,12 +426,8 @@ input:focus {
   color:#cac7ff;
 }
 
-input:visited {
-  background: transparent;
-  flex:1;
-  border:0;
-  outline:none;
-  padding:24px 20px;
-  font-size:20px;
-  color:#cac7ff;
+.input-search::placeholder {
+  color: #fff;
+  font-size: 20px;
+  padding-left:0.5%;
 }
