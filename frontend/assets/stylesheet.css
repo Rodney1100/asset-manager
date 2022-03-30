@@ -1,39 +1,38 @@
-*{
-    font-family: 'Kanit', sans-serif;
-    margin:0;
-    padding:0;
-    box-sizing: border-box;
+* {
+  font-family: "Kanit", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .header {
   width: 100%;
   height: 100vh;
   background: #e2e9f7;
-
 }
 
 .side-nav {
-  width:250px;
-  height:100%;
+  width: 250px;
+  height: 100%;
   background: #52686a;
-  position:fixed;
-  top:0;
-  left:0;
+  position: fixed;
+  top: 0;
+  left: 0;
   padding: 20px 30px;
 }
 
 .logoo {
-  display:block;
-  margin-bottom:15px;
+  display: block;
+  margin-bottom: 15px;
 }
 .logoo-img {
-  width:100px;
-  height:100px;
+  width: 100px;
+  height: 100px;
 }
 
 .nav-links {
   list-style: none;
-  position:relative;
+  position: relative;
 }
 
 .nav-links li {
@@ -44,36 +43,35 @@
   color: #fff;
   text-decoration: none;
   padding: 10px 14px;
-  display:flex;
+  display: flex;
   align-items: center;
 }
 
-
 .nav-links li a i {
-  font-size:22px;
+  font-size: 22px;
   margin-right: 20px;
 }
 
 .active {
   background: #fff;
-  width:100%;
-  height:47px;
+  width: 100%;
+  height: 47px;
   position: absolute;
   left: 0;
   top: 2.6%;
   z-index: -1;
-  border-radius:6px;
+  border-radius: 6px;
   box-shadow: 0 5px 10px rgba(255, 255, 255, 0.4);
-  display:none;
+  display: none;
   transition: top 0.5s;
 }
 
-.nav-links li:hover a{
+.nav-links li:hover a {
   color: #0d74f5;
   transition: 0.3s;
 }
 
-.nav-links li:hover p{
+.nav-links li:hover p {
   color: #0d74f5;
   transition: 0.3s;
 }
@@ -82,86 +80,85 @@
   display: block;
 }
 
-.nav-links li:nth-child(1):hover ~ .active{
+.nav-links li:nth-child(1):hover ~ .active {
   top: 1%;
 }
 
-.nav-links li:nth-child(2):hover ~ .active{
+.nav-links li:nth-child(2):hover ~ .active {
   top: 9.1%;
 }
 
-.nav-links li:nth-child(3):hover ~ .active{
+.nav-links li:nth-child(3):hover ~ .active {
   top: 17%;
 }
 
-.nav-links li:nth-child(4):hover ~ .active{
+.nav-links li:nth-child(4):hover ~ .active {
   top: 24.8%;
 }
 
-.nav-links li:nth-child(5):hover ~ .active{
+.nav-links li:nth-child(5):hover ~ .active {
   top: 32.7%;
 }
-.nav-links li:nth-child(6):hover ~ .active{
+.nav-links li:nth-child(6):hover ~ .active {
   top: 40.6%;
 }
 
-.nav-links li:nth-child(7):hover ~ .active{
+.nav-links li:nth-child(7):hover ~ .active {
   top: 93%;
 }
 
-.logo-icon{
+.logo-icon {
   display: none;
-  width:45px;
+  width: 45px;
 }
 @media only screen and (max-width: 600px) {
-  .side-nav{
-    width:110px;
+  .side-nav {
+    width: 110px;
   }
   .logo-icon {
-    display:block;
+    display: block;
   }
   .logoo-img {
     display: none;
   }
-  .nav-links li a p{
-    display:none;
+  .nav-links li a p {
+    display: none;
   }
-  .nav-links li a i{
+  .nav-links li a i {
     margin-right: 0;
   }
-  .nav-links li a{
+  .nav-links li a {
     justify-content: center;
   }
 }
 
 .container {
-  width:100%;
-  height:100vh;
+  width: 100%;
+  height: 100vh;
   background: #314a52;
   background-position: center;
   background-size: cover;
 }
 
 .row {
-  display:flex;
-  height:88%;
+  display: flex;
+  /* height:80008%; */
   align-items: center;
-  margin-left: 16%;
+  margin-left: 50%;
 }
 
 .col {
   flex-basis: 50%;
-
 }
 
 h1 {
   color: #fff;
-  font-size:100px;
+  font-size: 100px;
 }
 
 p {
   color: #fff;
-  font-size:13px;
+  font-size: 13px;
   line-height: 15px;
 }
 
@@ -171,11 +168,10 @@ p {
   font-size: 12px;
   padding: 12px 0;
   background: #fff;
-  border:0;
+  border: 0;
   border-radius: 20px;
   outline: none;
   margin-top: 30px;
-
 }
 
 .card {
@@ -185,7 +181,7 @@ p {
   border-radius: 10px;
   padding: 15px 25px;
   box-sizing: border-box;
-  cursor:pointer;
+  cursor: pointer;
   margin: 10px 15px;
   background-image: url(images/bitcoin-graph.PNG);
   background-position: center;
@@ -198,31 +194,30 @@ p {
 }
 
 .category-side {
-    display: block;
-    color: #000;
-    padding: 8px 16px;
-    text-decoration: none;
+  display: block;
+  color: #000;
+  padding: 8px 16px;
+  text-decoration: none;
 }
 
 .icon-list {
-    height: 16px;
-    width: 16px;
-    display: block;
-    padding: 8px 16px;
-    float:left;
+  height: 16px;
+  width: 16px;
+  display: block;
+  padding: 8px 16px;
+  float: left;
 }
 
 .icon-tab {
-    height: 16px;
-    width: 16px;
-    display: inline;
-    padding: 8px 16px;
+  height: 16px;
+  width: 16px;
+  display: inline;
+  padding: 8px 16px;
 }
 
 #login-list {
-  margin-top:350px;
+  margin-top: 350px;
 }
-
 
 /*container for login/signup*/
 .container-form {
@@ -239,7 +234,7 @@ p {
   width: 350px;
   height: 500px;
   border-radius: 10px;
-  box-shadow: 0 0 40px 20px rgba(0,0,0,0.26);
+  box-shadow: 0 0 40px 20px rgba(0, 0, 0, 0.26);
   perspective: 1000px;
 }
 
@@ -251,53 +246,54 @@ p {
   transition: transform 1s;
 }
 
-.card-front, .card-back {
+.card-front,
+.card-back {
   position: absolute;
   width: 100%;
   height: 100%;
   background-position: center;
-  background-size:cover;
+  background-size: cover;
   border-radius: 10px;
   background-image: url(images/newcard-bg2.png);
   padding: 55px;
   box-sizing: border-box;
   backface-visibility: hidden;
-  
 }
 
-.card-back{
+.card-back {
   transform: rotateY(180deg);
 }
 
-.card-signup h2{ /* center h2 */
+.card-signup h2 {
+  /* center h2 */
   font-weight: normal;
-  font-size:24px;
+  font-size: 24px;
   text-align: center;
   margin-bottom: 20px;
-
 }
 
 .input-box {
-  width:100%;
+  width: 100%;
   background: transparent;
   border: 1px solid #fff;
   margin: 6px 0;
   height: 32px;
   border-radius: 20px;
   padding: 0 10px;
-  box-sizing:border-box;
-  outline:none;
+  box-sizing: border-box;
+  outline: none;
   text-align: center;
   color: #fff;
 }
 
 ::placeholder {
-  color:#fff;
+  color: #fff;
   font-size: 12px;
 }
 
-.btn-input, .submit-btn{
-  width:100%;
+.btn-input,
+.submit-btn {
+  width: 100%;
   background: transparent;
   border: 1px solid #fff;
   margin: 35px 0 10px;
@@ -305,11 +301,10 @@ p {
   font-size: 12px;
   border-radius: 20px;
   padding: 0 10px;
-  box-sizing:border-box;
+  box-sizing: border-box;
   outline: none;
   color: #fff;
   cursor: pointer;
-
 }
 
 .submit-btn {
@@ -317,24 +312,22 @@ p {
 }
 
 .submit-btn::after {
-  content: '\27a4';
+  content: "\27a4";
   color: #333;
   line-height: 32px;
   font-size: 17px;
-  height:32px;
+  height: 32px;
   width: 32px;
   border-radius: 50%;
   background: #fff;
   position: absolute;
   right: -1px;
   top: -1px;
-
 }
 
 span {
   font-size: 13px;
   margin-left: 10px;
-
 }
 
 .card-signup .btn-input {
@@ -344,7 +337,7 @@ span {
 .card-signup a {
   color: #fff;
   text-decoration: none;
-  display:block;
+  display: block;
   text-align: center;
   font-size: 13px;
   margin-top: 8px;
@@ -353,7 +346,7 @@ span {
 /*Search Function for graphs and drop down*/
 
 .container-temp {
-  width:100%;
+  width: 100%;
   height: 100vh;
   padding: 5%;
   background: #314a52;
@@ -365,36 +358,33 @@ span {
 }
 
 .search-bar {
-  width:100%;
+  width: 100%;
   max-width: 700px;
   background: rgba(255, 255, 255, 0.2);
   display: flex;
   align-items: center;
-  border-radius:60px;
+  border-radius: 60px;
   padding: 10px 20px;
   backdrop-filter: blur(4px) saturate(180%);
 }
 
 .search-bar .input-search {
   background: transparent;
-  flex:1;
-  border:0;
-  outline:none;
-  padding:24px 20px;
-  font-size:20px;
-  color:#cac7ff;
+  flex: 1;
+  border: 0;
+  outline: none;
+  padding: 24px 20px;
+  font-size: 20px;
+  color: #cac7ff;
 }
-
-
 
 .search-bar #search-btn .magglass {
-  width:25px;
-
+  width: 25px;
 }
 .search-bar #search-btn {
-  border:0;
-  border-radius:50%;
-  width:60px;
+  border: 0;
+  border-radius: 50%;
+  width: 60px;
   height: 60px;
   background: #52686a;
   cursor: pointer;
@@ -402,28 +392,28 @@ span {
 
 .input-search:focus {
   background: transparent;
-  flex:1;
-  border:0;
-  outline:none;
-  padding:24px 20px;
-  font-size:20px;
-  color:#fff;
+  flex: 1;
+  border: 0;
+  outline: none;
+  padding: 24px 20px;
+  font-size: 20px;
+  color: #fff;
 }
 
 .input-search:visited {
   background: transparent;
-  flex:1;
-  border:0;
-  outline:none;
-  padding:24px 20px;
-  font-size:20px;
-  color:#cac7ff;
+  flex: 1;
+  border: 0;
+  outline: none;
+  padding: 24px 20px;
+  font-size: 20px;
+  color: #cac7ff;
 }
 
 .input-search::placeholder {
   color: #fff;
   font-size: 20px;
-  padding-left:0.5%;
+  padding-left: 0.5%;
 }
 /*Profile*/
 .mains {
@@ -468,7 +458,6 @@ span {
   color: #fff;
 }
 
-
 /* charts */
 
 .charts {
@@ -492,76 +481,85 @@ span {
   margin-bottom: 5px;
   font-size: 20px;
   color: #fff;
-  text-align: center
+  text-align: center;
 }
 
-@media (max-width:1115px) {
+.homeBox {
+  margin: ;
+  flex-wrap: wrap;
+}
+.hb2 {
+  flex-wrap: wrap;
+  display: flex;
+  width: 49%;
+  max-width: fit-content;
+}
+
+@media (max-width: 1115px) {
   .sidebar {
-      width: 60px;
+    width: 60px;
   }
   .main {
-      width: calc(100% - 60px);
-      left: 60px;
+    width: calc(100% - 60px);
+    left: 60px;
   }
 }
 
-@media (max-width:880px) {
+@media (max-width: 880px) {
   /* .topbar {
       grid-template-columns: 1.6fr 6fr 0.4fr 1fr;
   } */
   .fa-bell {
-      justify-self: left;
+    justify-self: left;
   }
   .cards {
-      width: 100%;
-      padding: 35px 20px;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      grid-gap: 20px;
+    width: 100%;
+    padding: 35px 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
   }
   .charts {
-      grid-template-columns: 1fr;
+    grid-template-columns: 1fr;
   }
   .doughnut-chart {
-      padding: 50px;
+    padding: 50px;
   }
   #doughnut {
-      padding: 50px;
+    padding: 50px;
   }
 }
 
-@media (max-width:500px) {
+@media (max-width: 500px) {
   .topbar {
-      grid-template-columns: 1fr 5fr 0.4fr 1fr;
+    grid-template-columns: 1fr 5fr 0.4fr 1fr;
   }
   .logo h2 {
-      font-size: 20px;
+    font-size: 20px;
   }
   .search {
-      width: 80%;
+    width: 80%;
   }
   .search input {
-      padding: 0 20px;
+    padding: 0 20px;
   }
   .fa-bell {
-      margin-right: 5px;
+    margin-right: 5px;
   }
   .cards {
-      grid-template-columns: 1fr;
+    grid-template-columns: 1fr;
   }
   .doughnut-chart {
-      padding: 10px;
+    padding: 10px;
   }
   #doughnut {
-      padding: 0px;
+    padding: 0px;
   }
   .user {
-      width: 40px;
-      height: 40px;
+    width: 40px;
+    height: 40px;
   }
 }
-
-
 
 .btcwdgt-body {
   width: 1000px !important;
@@ -588,7 +586,6 @@ span {
   height: 562.5px;
 }
 
-
 .btcwdgt-chart .btcwdgt-body canvas {
   position: absolute !important;
   top: 0 !important;
@@ -598,5 +595,3 @@ span {
   width: 100% !important;
   height: 100% !important;
 }
-
-

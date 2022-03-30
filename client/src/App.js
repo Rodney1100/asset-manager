@@ -22,8 +22,8 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
+        <div className="wholePage">
           <Header/>
-        <div>
           <div className="container">
             <Switch>
             <Route exact path="/" component={Home} />

@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER, ADD_USER } from '../utils/mutations';
-
+import Auth from "../utils/AuthService"
 
 
 const Login = (props) => {
@@ -22,9 +22,9 @@ const Login = (props) => {
   };
 
   // login starts +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-  const [formState, setFormState] = useState({ email: '', password: '' });
+  const [formState, setFormState] = useState(null);
   const [login, { error }] = useMutation(LOGIN_USER);
-
+console.log(formState)
   // update state based on form input changes
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -44,7 +44,7 @@ const Login = (props) => {
         variables: { ...formState },
       });
 
-      login(data.login.token);
+      Auth.login(data.login.token);
     } catch (e) {
       console.error(e);
     }
@@ -58,11 +58,7 @@ const Login = (props) => {
   // Login ends+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
   // signup Start ///////////////////////////////////////////////////////////////////////////////////
-  const [formStateR, setFormStateR] = useState({
-    usernameR: '',
-    emailR: '',
-    passwordR: '',
-  });
+  const [formStateR, setFormStateR] = useState(null);
   const [addUser] = useMutation(ADD_USER);
 
   // update state based on form input changes
@@ -84,7 +80,7 @@ const Login = (props) => {
         variables: { ...formStateR },
       });
 
-      login(data.addUser.token);
+     Auth.login(data.addUser.token);
     } catch (e) {
       console.error(e);
     }
@@ -99,8 +95,8 @@ const Login = (props) => {
           <div className="card-front">
             <h2>LOGIN</h2>
             <form onSubmit={handleFormSubmit}>
-              <input type="email" id='email' name='email' className="input-box" placeholder="Email" value={formState.email} onChange={handleChange} required />
-              <input type="password" name='password' id='password' className="input-box" placeholder="Password" value={formState.password} onChange={handleChange} required />
+              <input type="email" id='email' name='email' className="input-box" placeholder="Email"  onChange={handleChange} required />
+              <input type="password" name='password' id='password' className="input-box" placeholder="Password" onChange={handleChange} required />
               <button className="submit-btn" type="submit">Submit</button>
             </form>
             {error && <div>Login failed</div>}
@@ -110,9 +106,9 @@ const Login = (props) => {
           <div className="card-back">
             <h2>REGISTER</h2>
             <form onSubmit={handleFormSubmitR}>
-              <input type="text" name='usernameR' className="input-box" placeholder="Username" onChange={handleChangeR} required />
-              <input type="email" name='emailR' className="input-box" placeholder="Email" onChange={handleChangeR} required />
-              <input type="password" name='passwordR' className="input-box" placeholder="Password" onChange={handleChangeR} required />
+              <input type="text" name='username' className="input-box" placeholder="Username" onChange={handleChangeR} required />
+              <input type="email" name='email' className="input-box" placeholder="Email" onChange={handleChangeR} required />
+              <input type="password" name='password' className="input-box" placeholder="Password" onChange={handleChangeR} required />
               <button className="submit-btn" type="submit">Submit</button>
             </form>
             {error && <div>Sign up failed</div>}

@@ -37,7 +37,14 @@ const postSchema = new Schema({
   //   type: Schema.Types.ObjectId,
   //   ref: "user",
   // },
-});
+}
+  , {
+    toJSON: {
+      virtuals: true,
+      getters: true,
+    }
+  }
+);
 
 // create the Post model using the PostSchema
 const Post = model("Post", postSchema);

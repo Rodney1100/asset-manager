@@ -1,26 +1,36 @@
 *{
   font-family: 'Kanit', sans-serif;
-  margin:0;
-  padding:0;
+  /* margin:0; */
+  /* padding:0; */
   box-sizing: border-box;
 }
+body{
+  background-color: antiquewhite;
+  justify-content: center;
+  margin:auto
+}
 
-.header {
+
+.wholePage{
+display: flex;
+width: 100%;
+/* margin: auto; */
+}
+
+/* Header {
 width: 100%;
 height: 100vh;
 background: #e2e9f7;
-
-}
+} */
 
 .side-nav {
-width:250px;
+width:15%;
 height:100%;
 background: #52686a;
 position:fixed;
 top:0;
 left:0;
-padding: 20px 30px;
-}
+margin: auto;}
 
 .logoo {
 display:block;
@@ -37,13 +47,13 @@ position:relative;
 }
 
 .nav-links li {
-padding: 10px 0;
+/* padding: 5px 5px; */
 }
 
 .nav-links li a {
 color: #fff;
 text-decoration: none;
-padding: 10px 14px;
+padding: 12px 14px;
 display:flex;
 align-items: center;
 }
@@ -55,7 +65,7 @@ margin-right: 20px;
 }
 
 .active {
-background: #fff;
+background: rgb(255, 255, 255);
 width:100%;
 height:47px;
 position: absolute;
@@ -83,30 +93,30 @@ display: block;
 }
 
 .nav-links li:nth-child(1):hover ~ .active{
-top: 1%;
+top: 0%;
 }
 
 .nav-links li:nth-child(2):hover ~ .active{
-top: 9.1%;
+top: 12%;
 }
 
 .nav-links li:nth-child(3):hover ~ .active{
-top: 17%;
+top: 24%;
 }
 
 .nav-links li:nth-child(4):hover ~ .active{
-top: 24.8%;
+top: 36%;
 }
 
 .nav-links li:nth-child(5):hover ~ .active{
-top: 32.7%;
+top: 48%;
 }
 .nav-links li:nth-child(6):hover ~ .active{
-top: 40.6%;
+top: 60%;
 }
 
 .nav-links li:nth-child(7):hover ~ .active{
-top: 93%;
+top: 87%;
 }
 
 .logo-icon{
@@ -134,29 +144,22 @@ width:45px;
 }
 }
 
-.container {
-width:100%;
-height:100vh;
-background: #314a52;
-background-position: center;
-background-size: cover;
-}
 
 .row {
 display:flex;
-height:88%;
+height:100vw;
 align-items: center;
-margin-left: 16%;
+margin-left: 1%;
 }
 
 .col {
-flex-basis: 50%;
-
+flex-basis: 48%;
+/* flex-wrap: wrap; */
 }
 
 h1 {
 color: #fff;
-font-size:100px;
+font: size 10vw;;
 }
 
 p {
@@ -179,15 +182,15 @@ margin-top: 30px;
 }
 
 .card {
-width: 275px;
-height: 251px;
+width: 150px;
+height: 150px;
 display: inline-block;
 border-radius: 10px;
-padding: 15px 25px;
-box-sizing: border-box;
+/* padding: 10% 10%; */
+/* box-sizing: border-box; */
 cursor:pointer;
-margin: 10px 15px;
-background-image: url(../public/iconAssetm.png);
+margin: 10px 10px;
+background-image: url(../public/images/bitcoin-graph.png);
 background-position: center;
 background-size: cover;
 transition: transform 0.5;
@@ -220,7 +223,7 @@ transform: translateY(-10px);
 }
 
 #login-list {
-margin-top:350px;
+margin-top:20%;
 }
 
 
@@ -435,4 +438,21 @@ color:#cac7ff;
 color: #fff;
 font-size: 20px;
 padding-left:0.5%;
+}
+.container {
+width:85%;
+
+margin-left: 15%;
+padding-left: 1%;
+height:100vh;
+max-height: fit-content;
+display: flex;
+flex-wrap: wrap;
+background: #314a52;
+background-position: center;
+background-size: cover;
+}
+.forFlex{
+  /* display: flex; */
+  flex-wrap: wrap;
 }

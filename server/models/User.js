@@ -25,10 +25,10 @@ const userSchema = new Schema({
     default: Date.now,
     get: timestamp => dateFormat(timestamp)
   },
-  postByUser: [
+  post: [
     {
       type: Schema.Types.ObjectId,
-      res: "Post",
+      ref: "Post",
     },
   ],
 });

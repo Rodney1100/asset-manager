@@ -36,7 +36,7 @@ query Query($username: String!) {
     email
     password
     createdAt
-    postByUser {
+    post {
       stockName
       createdAt
       purchaseAt

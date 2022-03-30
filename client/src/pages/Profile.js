@@ -13,8 +13,8 @@ const Profile = (props) => {
     variables: { username: "test1" },
   });
 
-  const post = data?.post || {};
-
+  const user = data?.User || {};
+console.log(data)
   if (loading) {
     return <div>Loading...</div>;
   }
@@ -24,13 +24,13 @@ const Profile = (props) => {
       <div>
         <p>
           <span style={{ fontWeight: 700 }} className="text-light">
-            {post.username}
+            {user.username}
           </span>{' '}
-          post on {post.createdAt}
+          post on {user.createdAt}
         </p>
         <h1>this is from the profile</h1>
         <div className="card-body">
-          <p>{post.postText}</p>
+          <p>{user.createdAt}</p>
         </div>
       </div>
     </div>

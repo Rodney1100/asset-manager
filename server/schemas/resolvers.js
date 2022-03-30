@@ -63,12 +63,12 @@ const resolvers = {
     // },
     //  only a created user can login
     login: async (parent, { email, username, password }) => {
-      let user;
-      if (email) {
-        user = await User.findOne({ email });
-      } else {
-        user = await User.findOne({ username });
-      }
+      let user = await User.findOne({ email });
+      // if (email) {
+      //   user = await User.findOne({ email });
+      // } else {
+      //   user = await User.findOne({ username });
+      // }
       if (!user) {
         throw new AuthenticationError("Incorrect credentials");
       }
