@@ -28,6 +28,7 @@ const Profile = (props) => {
       </span>{' '}
       post on {post.createdAt}
     </p>
+    <h1>this is from the profile</h1>
     <div className="card-body">
       <p>{post.postText}</p>
     </div>

@@ -5,9 +5,7 @@ import { FaHouseUser, FaChartBar, FaAddressCard, FaDisease, FaNewspaper, FaFortA
 
 const Header = () => {
   return (
-    <main>
-
-      {/* <div className="container"> */}
+      <div className="">
         {/* nav starts */}
         <div className="side-nav">
           <Link to='/'>
@@ -27,8 +25,7 @@ const Header = () => {
 
           </div>
         </div>
-      {/* </div> */}
-    </main>
+      </div>
   );
 };
 export default Header;

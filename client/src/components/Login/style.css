@@ -187,7 +187,7 @@ padding: 15px 25px;
 box-sizing: border-box;
 cursor:pointer;
 margin: 10px 15px;
-background-image: url(../public/iconAssetm.png);
+background-image: url(../../../public/iconAssetm.png);
 background-position: center;
 background-size: cover;
 transition: transform 0.5;
@@ -224,6 +224,17 @@ margin-top:350px;
 }
 
 
+/* container for login/signup*/
+/* .container-form {
+width: 100%;
+height: 100vh;
+background: #314a52;
+color: #fff;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
 /*container for login/signup*/
 /* .container-form {
 width: 100%;
@@ -234,17 +245,6 @@ display: flex;
 align-items: center;
 justify-content: center;
 } */
-
-/*container for login/signup*/
-.container-form {
-width: 100%;
-height: 100vh;
-background: #314a52;
-color: #fff;
-display: flex;
-align-items: center;
-justify-content: center;
-}
 
 .card-signup {
 width: 350px;
@@ -269,7 +269,7 @@ height: 100%;
 background-position: center;
 background-size:cover;
 border-radius: 10px;
-background-image: url(../public/images/newcard-bg2.png);
+background-image: url(../../../public/images/newcard-bg2.png);
 padding: 55px;
 box-sizing: border-box;
 backface-visibility: hidden;
