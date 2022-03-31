@@ -21,14 +21,13 @@ console.log(data)
 
   return (
     <div>
-      <div>
-        <p>
+      <div className='makeCenter'>
+      <p>
           <span style={{ fontWeight: 700 }} className="text-light">
             {user.username}
           </span>{' '}
-          post on {user.createdAt}
+          Created an account {user.createdAt}
         </p>
-        <h1>this is from the profile</h1>
         <div className="card-body">
           <p>{user.createdAt}</p>
         </div>
