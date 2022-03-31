@@ -1,7 +1,7 @@
 // const { rename } = require("fs");
 const jwt = require("jsonwebtoken");
-const secret = "ThisSecretWillBeChanged";
-const expiration = "1h";
+const secret = process.env.secret;
+const expiration = "3h";
 
 module.exports = {
   authMiddleware: function ({ req }) {
