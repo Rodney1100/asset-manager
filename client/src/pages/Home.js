@@ -11,16 +11,16 @@ const Home = () => {
                     charts with the information you
                     insert regarding your assets and trading ideas
                 </p>
-                <button class="btn-reg" type="button">Explore</button>
+                <button className="btn-reg" type="button">Explore</button>
             </div>
-            <div class="hb2">
-                <div class="card">
+            <div className="hb2">
+                <div className="card">
                 </div>
-                <div class="card">
+                <div className="card">
                 </div>
-                <div class="card">
+                <div className="card">
                 </div>
-                <div class="card">
+                <div className="card">
                 </div>
             </div>
         </div>

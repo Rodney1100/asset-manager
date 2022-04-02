@@ -12,25 +12,36 @@ import {
   InMemoryCache,
   createHttpLink,
 } from "@apollo/client";
-
+import { setContext } from '@apollo/client/link/context';
+const authLink = setContext((_, { headers }) => {
+  const token = localStorage.getItem('id_token');
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : '',
+    },
+  };
+});
 // import "./App.css";
-const httpLink = createHttpLink({ uri: "/graphql" });
+const httpLink = createHttpLink({ uri: "http://localhost:3001/graphql" });
 
-const client = new ApolloClient({ link: httpLink, cache: new InMemoryCache() });
-
+const client = new ApolloClient({
+  link: authLink.concat(httpLink),
+  cache: new InMemoryCache(),
+});
 function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
         <div className="wholePage">
-          <Header/>
+          <Header />
           <div className="container">
             <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/Login" component={Login} />
-            <Route exact path="/Profile/:username?" component={Profile} />
-            <Route exact path="/SinglePost/:_id?" component={SinglePost} />
-            <Route component={NoMatch} />
+              <Route exact path="/" component={Home} />
+              <Route exact path="/Login" component={Login} />
+              <Route exact path="/Profile/:username?" component={Profile} />
+              <Route exact path="/SinglePost/:_id?" component={SinglePost} />
+              <Route component={NoMatch} />
             </Switch>
           </div>
         </div>

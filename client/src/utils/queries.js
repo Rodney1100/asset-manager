@@ -14,6 +14,18 @@ export const QUERY_SINGLEUSERPOST = gql`
   }
 `;
 
+export const QUERY_USER = gql`
+  query user($username: String!) {
+    user(username: $username) {
+      _id
+      username
+      email
+    }
+  }
+`;
+
+
+
 export const QUERY_ALLPOST = gql`
   query allPost {
     allPost {
@@ -28,20 +40,20 @@ export const QUERY_ALLPOST = gql`
   }
 `;
 
-export const QUERY_ME= gql`
-query Query($username: String!) {
-  User(username: $username) {
+export const QUERY_ME = gql`
+query Me {
+  me {
     username
-    _id
     email
     password
     createdAt
-    post {
+    posts {
       stockName
       createdAt
       purchaseAt
       amountBought
       pricedAt
+      username
       _id
     }
   }
