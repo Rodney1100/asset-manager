@@ -19,7 +19,7 @@ const Header = () => {
             <>
               <li><Link to="/"><FaFortAwesome /> &nbsp; Home</Link></li>
               <li><Link to="/Profile"><FaAddressCard />  &nbsp; Profile</Link></li>
-              <li><Link to='/'><FaChartBar /> &nbsp; Charts</Link></li>
+              <li><Link to='/CreatePost'><FaChartBar /> &nbsp; Add Asset</Link></li>
               <li><Link to='/'><FaDisease /> &nbsp; Ideas</Link></li>
               <li><Link to='/'><FaNewspaper /> &nbsp; News</Link></li>
               <li><Link to='/'><FaCogs /> &nbsp; Settings</Link></li>

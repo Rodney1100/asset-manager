@@ -1,9 +1,15 @@
 import React from 'react';
+// import { FaNewspaper, FaFortAwesome, FaCogs, FaSignInAlt } from "react-icons/fa";
+
 import { Redirect, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_ME, QUERY_USER } from '../utils/queries';
 import Auth from '../utils/auth';
+import { Link } from 'react-router-dom';
 import PostList from '../components/Profile';
+import { creatPost } from '../components/PostForm'
+import { use } from 'bcrypt/promises';
+import { FaCogs } from "react-icons/fa";
 const Profile = (props) => {
   const { username: userParam } = useParams();
 
@@ -30,22 +36,14 @@ const Profile = (props) => {
     );
   }
 
+
   return (
     <div>
       <div className='makeCenter'>
-
+        {/* <li> <button><Link to="/CreatePost"> <FaCogs /> Create a Post</Link>    </button></li> */}
         <h2>
           {user.username} Created an account {user.createdAt}
         </h2>
-        <div className="card-body">
-          <p>{user.amountBought}</p>
-        </div>
-        <h1>
-          <PostList
-            posts={user.stockName}
-            title={`${user.username}'s Stocks`}
-          />
-        </h1>
       </div>
     </div>
   );

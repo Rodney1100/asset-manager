@@ -20,7 +20,7 @@ const Login = (props) => {
     }
   };
 
-  // login starts +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  // login starts +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
   const [formState, setFormState] = useState({ email: '', password: '' });
   const [login, { error }] = useMutation(LOGIN_USER);
   // console.log(formState)
@@ -56,10 +56,7 @@ const Login = (props) => {
       password: '',
     });
   };
-  // Login ends+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-
-
+  // Login ends++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
   // signup Start ///////////////////////////////////////////////////////////////////////////////////
   const [formStateR, setFormStateR] = useState({ username: '', email: '', password: '' });

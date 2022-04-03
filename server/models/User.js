@@ -1,7 +1,7 @@
 const { Schema, model } = require("mongoose");
 const bcrypt = require("bcrypt");
 const dateFormat = require("../utils/dateFormat");
-const Post = require("./Post");
+// const Post = require("./Post");
 const userSchema = new Schema({
   username: {
     type: String,
@@ -25,12 +25,16 @@ const userSchema = new Schema({
     default: Date.now,
     get: timestamp => dateFormat(timestamp)
   },
-  post: [
+  posts: [
     {
       type: Schema.Types.ObjectId,
       ref: "Post",
     },
   ],
+}, {
+  toJSON: {
+    virtuals: true
+  }
 });
 
 // set up middleware to create password

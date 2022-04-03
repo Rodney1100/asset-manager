@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Profile from "./pages/Profile";
 import SinglePost from "./pages/SinglePost";
+import creatPost from "./components/PostForm";
 import NoMatch from "./pages/NoMatch";
 import Header from "./components/Header";
 import {
@@ -13,6 +14,7 @@ import {
   createHttpLink,
 } from "@apollo/client";
 import { setContext } from '@apollo/client/link/context';
+import Auth from "./utils/auth";
 const authLink = setContext((_, { headers }) => {
   const token = localStorage.getItem('id_token');
   return {
@@ -40,6 +42,13 @@ function App() {
               <Route exact path="/" component={Home} />
               <Route exact path="/Login" component={Login} />
               <Route exact path="/Profile/:username?" component={Profile} />
+              {Auth.loggedIn()?(
+                <Route exact path="/CreatePost" component={creatPost} />
+              ):(
+                <>
+                <h1> You need to Login to use this feature.</h1></>
+                )
+              }
               <Route exact path="/SinglePost/:_id?" component={SinglePost} />
               <Route component={NoMatch} />
             </Switch>
