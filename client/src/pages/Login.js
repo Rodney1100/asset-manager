@@ -1,8 +1,7 @@
-
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER, ADD_USER } from '../utils/mutations';
-import Auth from "../utils/AuthService"
+import Auth from '../utils/auth';
 
 
 const Login = (props) => {
@@ -21,10 +20,10 @@ const Login = (props) => {
     }
   };
 
-  // login starts +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-  const [formState, setFormState] = useState(null);
+  // login starts +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  const [formState, setFormState] = useState({ email: '', password: '' });
   const [login, { error }] = useMutation(LOGIN_USER);
-console.log(formState)
+  // console.log(formState)
   // update state based on form input changes
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -45,6 +44,8 @@ console.log(formState)
       });
 
       Auth.login(data.login.token);
+      console.log(data)
+      return data
     } catch (e) {
       console.error(e);
     }
@@ -55,10 +56,10 @@ console.log(formState)
       password: '',
     });
   };
-  // Login ends+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  // Login ends++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
   // signup Start ///////////////////////////////////////////////////////////////////////////////////
-  const [formStateR, setFormStateR] = useState(null);
+  const [formStateR, setFormStateR] = useState({ username: '', email: '', password: '' });
   const [addUser] = useMutation(ADD_USER);
 
   // update state based on form input changes
@@ -79,8 +80,8 @@ console.log(formState)
       const { data } = await addUser({
         variables: { ...formStateR },
       });
-
-     Auth.login(data.addUser.token);
+      Auth.login(data.addUser.token);
+      console.log(data)
     } catch (e) {
       console.error(e);
     }
@@ -95,8 +96,8 @@ console.log(formState)
           <div className="card-front">
             <h2>LOGIN</h2>
             <form onSubmit={handleFormSubmit}>
-              <input type="email" id='email' name='email' className="input-box" placeholder="Email"  onChange={handleChange} required />
-              <input type="password" name='password' id='password' className="input-box" placeholder="Password" onChange={handleChange} required />
+              <input type="email" id='email' name='email' className="input-box" placeholder="Email" value={formState.email} onChange={handleChange} required />
+              <input type="password" name='password' id='password' className="input-box" placeholder="Password" value={formState.password} onChange={handleChange} required />
               <button className="submit-btn" type="submit">Submit</button>
             </form>
             {error && <div>Login failed</div>}
@@ -106,9 +107,9 @@ console.log(formState)
           <div className="card-back">
             <h2>REGISTER</h2>
             <form onSubmit={handleFormSubmitR}>
-              <input type="text" name='username' className="input-box" placeholder="Username" onChange={handleChangeR} required />
-              <input type="email" name='email' className="input-box" placeholder="Email" onChange={handleChangeR} required />
-              <input type="password" name='password' className="input-box" placeholder="Password" onChange={handleChangeR} required />
+              <input type="text" name='username' className="input-box" placeholder="Username" value={formStateR.username} onChange={handleChangeR} required />
+              <input type="email" name='email' className="input-box" placeholder="Email" value={formStateR.email} onChange={handleChangeR} required />
+              <input type="password" name='password' className="input-box" placeholder="Password" value={formStateR.password} onChange={handleChangeR} required />
               <button className="submit-btn" type="submit">Submit</button>
             </form>
             {error && <div>Sign up failed</div>}

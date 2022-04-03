@@ -1,37 +1,49 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+// import { FaNewspaper, FaFortAwesome, FaCogs, FaSignInAlt } from "react-icons/fa";
 
+import { Redirect, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-import { QUERY_ME } from '../utils/queries';
-// import SinglePost from './SinglePost';
-
-
+import { QUERY_ME, QUERY_USER } from '../utils/queries';
+import Auth from '../utils/auth';
+import { Link } from 'react-router-dom';
+import PostList from '../components/Profile';
+import { creatPost } from '../components/PostForm'
+import { use } from 'bcrypt/promises';
+import { FaCogs } from "react-icons/fa";
 const Profile = (props) => {
-  const { username: usersUsername } = useParams();
+  const { username: userParam } = useParams();
 
-  const { loading, data } = useQuery(QUERY_ME, {
-    variables: { username: "test1" },
+  const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
+    variables: { username: userParam },
   });
+  const user = data?.me || data?.user || {};
 
-  const user = data?.User || {};
-console.log(data)
+  // redirect to personal profile page if username is yours
+  if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
+    return <Redirect to="/profile" />;
+  }
+
   if (loading) {
     return <div>Loading...</div>;
   }
 
+  if (!user?.username) {
+    return (
+      <h4>
+        You need to be logged in to see this. Use the navigation links above to
+        sign up or log in!
+      </h4>
+    );
+  }
+
+
   return (
     <div>
-      <div>
-        <p>
-          <span style={{ fontWeight: 700 }} className="text-light">
-            {user.username}
-          </span>{' '}
-          post on {user.createdAt}
-        </p>
-        <h1>this is from the profile</h1>
-        <div className="card-body">
-          <p>{user.createdAt}</p>
-        </div>
+      <div className='makeCenter'>
+        {/* <li> <button><Link to="/CreatePost"> <FaCogs /> Create a Post</Link>    </button></li> */}
+        <h2>
+          {user.username} Created an account {user.createdAt}
+        </h2>
       </div>
     </div>
   );

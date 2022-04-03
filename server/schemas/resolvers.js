@@ -6,7 +6,9 @@ const resolvers = {
   Query: {
     me: async (parent, args, context) => {
       if (context.user) {
-        const userData = await User.findOne({ _id: context.user._id });
+        const userData = await User.findOne({ _id: context.user._id })
+          .select("-__v -password")
+          .populate("posts")
         return userData;
       }
       throw new AuthenticationError("Not logged in");
@@ -17,7 +19,7 @@ const resolvers = {
     },
     // get a user by username
     User: async (parent, { username }) => {
-      return User.findOne({ username }).select("-__v -password");
+      return User.findOne({ username }).select("-__v -password")
     },
 
     // git one post with ID
@@ -27,7 +29,12 @@ const resolvers = {
     },
     //  get  post for one user
     singleUserPost: async (parent, { username }) => {
+      const params = username ? { username } : {};
       return Post.find({ username }).sort({ createdAt: -1 });
+    },
+    posts: async (parent, { username }) => {
+      const params = username ? { username } : {};
+      return Post.find(params).sort({ createdAt: -1 });
     },
     // git all post posted
     allPost: async () => {
@@ -62,7 +69,7 @@ const resolvers = {
     //   return User;
     // },
     //  only a created user can login
-    login: async (parent, { email, username, password }) => {
+    login: async (parent, { email, password }) => {
       let user = await User.findOne({ email });
       // if (email) {
       //   user = await User.findOne({ email });
@@ -89,13 +96,29 @@ const resolvers = {
         });
         await User.findByIdAndUpdate(
           { _id: context.user._id },
-          { $push: { post: post._id } },
+          { $push: { posts: post._id } },
           { new: true }
         );
         return post;
       }
       throw new AuthenticationError("You need to be logged in!");
     },
+
+    // addPost: async (parent, args, context) => {
+    //   if (context.user) {
+    //     const post = await Post.create({
+    //       ...args,
+    //       username: context.user.username,
+    //     });
+    //     await User.findByIdAndUpdate(
+    //       { _id: context.user._id },
+    //       { $push: { post: post._id } },
+    //       { new: true }
+    //     );
+    //     return post;
+    //   }
+    //   throw new AuthenticationError("You need to be logged in!");
+    // },
 
     // delete post
     deletePost: async (parent, { _id }, context) => {

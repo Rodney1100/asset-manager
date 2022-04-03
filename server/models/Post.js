@@ -20,14 +20,14 @@ const postSchema = new Schema({
   amountBought: {
     type: Number,
     required: true,
-    minlength: 2,
+    minlength: 1,
     maxlength: 10,
   },
   pricedAt: {
     type: Number,
     required: true,
-    minlength: 2,
-    maxlength: 6,
+    minlength: 1,
+    maxlength: 10,
   },
   username: {
     type: String,
@@ -38,12 +38,11 @@ const postSchema = new Schema({
   //   ref: "user",
   // },
 }
-  , {
-    toJSON: {
-      virtuals: true,
-      getters: true,
-    }
-  }
+  // , {
+  //   toJSON: {
+  //     getters: true,
+  //   }
+  // }
 );
 
 // create the Post model using the PostSchema
