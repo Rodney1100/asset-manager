@@ -25,7 +25,7 @@ const authLink = setContext((_, { headers }) => {
   };
 });
 // import "./App.css";
-const httpLink = createHttpLink({ uri: "http://localhost:3001/graphql" });
+const httpLink = createHttpLink({ uri: "/graphql" });
 
 const client = new ApolloClient({
   link: authLink.concat(httpLink),
@@ -42,12 +42,12 @@ function App() {
               <Route exact path="/" component={Home} />
               <Route exact path="/Login" component={Login} />
               <Route exact path="/Profile/:username?" component={Profile} />
-              {Auth.loggedIn()?(
+              {Auth.loggedIn() ? (
                 <Route exact path="/CreatePost" component={creatPost} />
-              ):(
+              ) : (
                 <>
-                <h1> You need to Login to use this feature.</h1></>
-                )
+                  <h1> You need to Login to use this feature.</h1></>
+              )
               }
               <Route exact path="/SinglePost/:_id?" component={SinglePost} />
               <Route component={NoMatch} />
